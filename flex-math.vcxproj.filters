@@ -4,27 +4,33 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\flex-math">
+      <UniqueIdentifier>{628542C1-CE45-BEF7-9780-0775030003D4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\decl.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\flex-math.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\matrix.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\flex-math\core.h">
+      <Filter>src\flex-math</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\flex-math\decl.h">
+      <Filter>src\flex-math</Filter>
     </ClInclude>
-    <ClInclude Include="src\vector.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\flex-math\matrix.h">
+      <Filter>src\flex-math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flex-math\utils.h">
+      <Filter>src\flex-math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flex-math\vector.h">
+      <Filter>src\flex-math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\matrix.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\flex-math\matrix.cpp">
+      <Filter>src\flex-math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

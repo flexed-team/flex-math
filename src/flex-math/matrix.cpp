@@ -67,7 +67,7 @@ namespace FE {
 		assert(g_w() == m.g_w() && g_h() == m.g_h());
 	}
 
-	template<class t> FE_API void Matrix<t>::log()
+	template<class t> void Matrix<t>::log()
 	{
 		for (unsigned i = 0; i < g_h(); i++) {
 			for (unsigned j = 0; j < g_w(); j++)
@@ -230,7 +230,7 @@ namespace FE {
 
 		return _v;
 	}
-	template<class t> Vec2f Matrix<t>::operator *(const Vec2f& o) const
+	template<class t> Vec2f Matrix<t>::operator *(const Vec2f& o)
 	{
 		assert(g_w() == 2 && g_h() >= 2 && "Inappropriate matrix dimensions for vector multiplication - width must be 2 and heigth at least 2");
 		Vec2f _v = Vec2f();
@@ -435,7 +435,9 @@ namespace FE {
 	// Get elements operators
 	template<class t> std::vector<t> Matrix<t>::operator [](unsigned i) const
 	{ // TODO: maybe return iterator?
-		return std::vector<t>(v.begin() + i * g_w(), v.begin() + (i + 1) * g_w());
+		// FIXME: MAKE THIS
+		//return std::vector<t>(v.begin() + i * g_w(), v.begin() + (i + 1) * g_w());		
+		return std::vector<t>(0);
 	}
 	template<class t> t& Matrix<t>::operator ()(unsigned i)
 	{
@@ -448,7 +450,8 @@ namespace FE {
 		return v[r * width + c];
 	}
 
-	template <class t> std::ostream& operator <<(std::ostream& s, Matrix<t>& m) {
+	// FIXME: TRY TO EXPORT THIS INTO DLL, NOW IT DOESN'T WORK
+	template<class t> std::ostream& operator <<(std::ostream& s, Matrix<t>& m) {
 		m.log();
 		return s;
 	}

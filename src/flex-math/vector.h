@@ -1,11 +1,9 @@
 #pragma once
 
-#include "flex-math.h"
-
 namespace FE {
 
 	template <class t>
-	struct FE_API Vec2 {
+	struct Vec2 {
 		union {
 			struct { t u, v; };
 			struct { t x, y; };
@@ -25,12 +23,12 @@ namespace FE {
 			return M;
 		};
 
-		template <class > FE_API friend std::ostream& operator<<(std::ostream& s, Vec2<t>& v);
+		template <class > friend std::ostream& operator<<(std::ostream& s, Vec2<t>& v);
 
 	};
 
 	template <class t>
-	struct FE_API Vec3 {
+	struct Vec3 {
 		union {
 			struct { t x, y, z; };
 			struct { t ivert, iuv, inorm; };
@@ -55,7 +53,7 @@ namespace FE {
 			return M;
 		};
 
-		template <class > FE_API friend std::ostream& operator<<(std::ostream& s, Vec3<t>& v);
+		template <class > friend std::ostream& operator<<(std::ostream& s, Vec3<t>& v);
 	};
 
 	template<class t> std::ostream& operator<<(std::ostream& s, Vec2<t>& v) {

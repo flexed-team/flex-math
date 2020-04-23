@@ -1,9 +1,20 @@
 #pragma once
-#include "flex-math.h"
+
+#include <cmath>
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <iterator>
+#include <iomanip>      // std::setw
+#include <xmmintrin.h>
+#include <functional>
+
+#include "decl.h"
+#include "vector.h"
 
 namespace FE {
 
-	class  MatrixException : public std::runtime_error {
+	class MatrixException : public std::runtime_error {
 	public:
 		/** Default constructor */
 		MatrixException() :runtime_error("Unexepcted error") {}
@@ -12,7 +23,7 @@ namespace FE {
 	};
 
 	template <class t>
-	class FE_API Matrix
+	class Matrix
 	{
 	protected:
 		union {
@@ -27,7 +38,6 @@ namespace FE {
 		bool transposed;
 
 		/** Matrix values array */
-		//std::vector<t> v;
 		t* v = nullptr;
 
 		// Setters
@@ -129,7 +139,7 @@ namespace FE {
 		/** Perfmorms multiplication of matrix on 2d vector
 		*	Matrix has to be width 2 and height at least 2 (all after 2nd row will be ignored)
 		*/
-		Vec2f operator *(const Vec2f& o) const;
+		Vec2f operator *(const Vec2f& o);
 		/** Perfmorms multiplication of matrix on 3d vector
 		*	Matrix has to be width 3 and height at least 3 (all after 3nd row will be ignored)
 		*/
@@ -182,7 +192,7 @@ namespace FE {
 		Matrix<t> operator --(int);// Postfix increment ope rator.
 
 		/// << << << << << << << << <<
-		template <class> FE_API friend std::ostream& operator<<(std::ostream& s, Matrix<t>& m);
+		template <class> friend std::ostream& operator<<(std::ostream& s, Matrix<t>& m);
 
 		/**
 		* Implementation of 2d array [] operator.
@@ -213,10 +223,10 @@ namespace FE {
 		inline Vec3f toVec3f();
 	};
 
-	template <class t> FE_API std::ostream& operator <<(std::ostream& s, const Matrix<t>& m);
+	template <class t> std::ostream& operator <<(std::ostream& s, const Matrix<t>& m);
 
 	template<class t>
-	class FE_API SquareMatrix : public Matrix<t> {
+	class SquareMatrix : public Matrix<t> {
 	public:
 		SquareMatrix();
 
@@ -287,7 +297,7 @@ namespace FE {
 	};
 
 	template<class t>
-	class FE_API Matrix3 : public SquareMatrix<t>
+	class Matrix3 : public SquareMatrix<t>
 	{
 	public:
 		Matrix3();
@@ -303,7 +313,7 @@ namespace FE {
 		Matrix3(const Matrix<t>& m, std::vector<t>* _v);
 
 		/** Default value constructor(zero) */
-		Matrix3(t _defv = t(), bool _t = false);
+		Matrix3(t _defv, bool _t = false);
 		/** From array pointer */
 		Matrix3(t _v[9], bool _t = false);
 		/** From vector */
@@ -320,7 +330,7 @@ namespace FE {
 	};
 
 	template<class t>
-	class FE_API Matrix4 : public SquareMatrix<t>
+	class Matrix4 : public SquareMatrix<t>
 	{
 	public:
 		Matrix4();
@@ -352,4 +362,21 @@ namespace FE {
 			bool _t = false
 		);
 	};
+
+
+	template class FM_API Matrix<int>;
+	template class FM_API Matrix<float>;
+	template class FM_API Matrix<double>;
+
+	template class FM_API SquareMatrix<int>;
+	template class FM_API SquareMatrix<float>;
+	template class FM_API SquareMatrix<double>;
+
+	template class FM_API Matrix3<int>;
+	template class FM_API Matrix3<float>;
+	template class FM_API Matrix3<double>;
+
+	template class FM_API Matrix4<int>;
+	template class FM_API Matrix4<float>;
+	template class FM_API Matrix4<double>;
 }
