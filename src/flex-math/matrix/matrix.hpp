@@ -274,7 +274,7 @@ namespace FE
 		Matrix<T> operator*(Matrix<T> &o)
 		{
 			assert(get_width() == o.get_height() && "Multiply is impossible - origin matrix width is not equal other height");
-			Matrix<T> matrix = Matrix<T>(o.get_width(), get_height(), t());
+			Matrix<T> matrix = Matrix<T>(o.get_width(), get_height(), T());
 			for (uint8_t i = 0; i < get_height(); i++)
 				for (uint8_t j = 0; j < o.get_width(); j++)
 					for (uint8_t k = 0; k < get_width(); k++)
@@ -447,18 +447,18 @@ namespace FE
 		*/
 		T &operator()(uint8_t i)
 		{
-			return v[i];
+			return values[i];
 		}
 
 		/**
 		* Implementation of 2d array [][] operator.
 		* Returns matrix element
 		*/
-		T &operator()(uint8_t i1, uint8_t i2)
+		T &operator()(uint8_t row, uint8_t col)
 		{
 			if (transposed)
-				return v[c * width + r];
-			return v[r * width + c];
+				return values[col * width + row];
+			return values[row * width + col];
 		}
 
 		/// <<
