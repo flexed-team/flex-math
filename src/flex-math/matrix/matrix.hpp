@@ -229,7 +229,7 @@ namespace FE
 			T *_values = new T[get_length()];
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
-				_values[i] += o.v[i];
+				_values[i] += o.values[i];
 			return Matrix<T>((*this), _values);
 		}
 
