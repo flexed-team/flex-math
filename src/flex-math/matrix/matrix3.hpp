@@ -35,19 +35,19 @@ namespace FE
             T e6, T e7, T e8,
             bool transposed = false)
         {
-            SquareMatrix<t>::width = 3;
-            SquareMatrix<t>::height = 3;
-            SquareMatrix<t>::transposed = transposed;
-            SquareMatrix<t>::values = new T[9];
-            SquareMatrix<t>::values[0] = e0;
-            SquareMatrix<t>::values[1] = e1;
-            SquareMatrix<t>::values[2] = e2;
-            SquareMatrix<t>::values[3] = e3;
-            SquareMatrix<t>::values[4] = e4;
-            SquareMatrix<t>::values[5] = e5;
-            SquareMatrix<t>::values[6] = e6;
-            SquareMatrix<t>::values[7] = e7;
-            SquareMatrix<t>::values[8] = e8;
+            SquareMatrix<T>::width = 3;
+            SquareMatrix<T>::height = 3;
+            SquareMatrix<T>::transposed = transposed;
+            SquareMatrix<T>::values = new T[9];
+            SquareMatrix<T>::values[0] = e0;
+            SquareMatrix<T>::values[1] = e1;
+            SquareMatrix<T>::values[2] = e2;
+            SquareMatrix<T>::values[3] = e3;
+            SquareMatrix<T>::values[4] = e4;
+            SquareMatrix<T>::values[5] = e5;
+            SquareMatrix<T>::values[6] = e6;
+            SquareMatrix<T>::values[7] = e7;
+            SquareMatrix<T>::values[8] = e8;
         }
     };
 

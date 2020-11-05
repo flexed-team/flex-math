@@ -221,7 +221,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] += o;
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 		Matrix<T> operator+(Matrix<T> &o)
 		{
@@ -230,7 +230,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] += o.v[i];
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 
 		// -
@@ -241,7 +241,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] = -_values[i];
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 		Matrix<T> operator-(float o)
 		{
@@ -249,7 +249,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] -= o;
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 		Matrix<T> operator-(Matrix<T> &o)
 		{
@@ -258,7 +258,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] -= o.values[i];
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 
 		// *
@@ -268,13 +268,13 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] *= o;
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 		/** Perfmorms matrix multiplication */
 		Matrix<T> operator*(Matrix<T> &o)
 		{
 			assert(get_width() == o.get_height() && "Multiply is impossible - origin matrix width is not equal other height");
-			Matrix<t> matrix = Matrix<t>(o.get_width(), get_height(), t());
+			Matrix<T> matrix = Matrix<T>(o.get_width(), get_height(), t());
 			for (uint8_t i = 0; i < get_height(); i++)
 				for (uint8_t j = 0; j < o.get_width(); j++)
 					for (uint8_t k = 0; k < get_width(); k++)
@@ -317,7 +317,7 @@ namespace FE
 			std::copy(values, values + get_length(), _values);
 			for (uint8_t i = 0; i < get_length(); i++)
 				_values[i] /= o;
-			return Matrix<t>((*this), _values);
+			return Matrix<T>((*this), _values);
 		}
 
 		// ==
@@ -407,7 +407,7 @@ namespace FE
 		// Postfix increment operator
 		Matrix<T> operator++(int)
 		{
-			Matrix<t> temp = *this;
+			Matrix<T> temp = *this;
 			++*this; // copied it from here https://docs.microsoft.com/ru-ru/cpp/cpp/increment-and-decrement-operator-overloading-cpp?view=vs-2019
 			return temp;
 		}
@@ -421,7 +421,7 @@ namespace FE
 		// Postfix increment operator
 		Matrix<T> operator--(int)
 		{
-			Matrix<t> temp = *this;
+			Matrix<T> temp = *this;
 			--*this;
 			return temp;
 		}

@@ -24,11 +24,11 @@ namespace FE
         /** Default value constructor(zero) */
         SquareMatrix(uint8_t size, T default_value, bool transposed = false) : Matrix<T>(size, size, default_value, transposed) {}
         /** From array pointer */
-        SquareMatrix(uint8_t size, T array[], bool transposed = false) : Matrix<t>(size, size, array, transposed) {}
+        SquareMatrix(uint8_t size, T array[], bool transposed = false) : Matrix<T>(size, size, array, transposed) {}
         /** From vector */
-        SquareMatrix(uint8_t size, std::vector<T> &vector, bool transposed = false) : Matrix<t>(size, size, vector, transposed) {}
+        SquareMatrix(uint8_t size, std::vector<T> &vector, bool transposed = false) : Matrix<T>(size, size, vector, transposed) {}
         /** From vector pointer */
-        SquareMatrix(uint8_t size, std::vector<T> *vector, bool transposed = false) : Matrix<t>(size, size, vector, transposed) {}
+        SquareMatrix(uint8_t size, std::vector<T> *vector, bool transposed = false) : Matrix<T>(size, size, vector, transposed) {}
 
         void insert_row() = delete;
         void insert_col() = delete;
@@ -50,7 +50,7 @@ namespace FE
                     vector.push_back((*this)(i, j));
                 }
             }
-            return SquareMatrix(get_size() - 1, vector, Matrix<t>::get_transposed());
+            return SquareMatrix(get_size() - 1, vector, Matrix<T>::get_transposed());
         }
 
         /** Implementation of the Bareiss algorithm
@@ -67,7 +67,7 @@ namespace FE
 		*/
         long double determinant()
         {
-            SquareMatrix<t> M = *this;
+            SquareMatrix<T> M = *this;
             const uint8_t size = M.get_size();
 
             bool change_sign = false;
